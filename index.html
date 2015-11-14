@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Soaring task planner</title>
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="taskplan.css" />
+
+    <script src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/leaflet/leaflet.js"></script>
+    <script src="mapctrl.js"></script>
+    <script src="taskplan.js"></script>
+</head>
+<body>
+<h1>JavaScript Task planner</h1>
+ <div id='titlediv'>
+    <p>
+        A free browser-based tool for planning soaring tasks.
+    </p>
+    <p> &copy; 2015 Alistair Malcolm Green and Richard Brisbourne </p>
+</div>
+    <noscript>
+        <p>
+            <strong>Please enable JavaScript to use this application.</strong>
+        </p>
+    </noscript>
+    <div id="map">
+    </div>
+    <div id="controldiv">
+   <p>
+   <label for="airclip">Clip airspace above:</label>
+        <select id="airclip" autocomplete="off" class="inbutton">
+           <option value="0">No Airspace</option>
+           <option value="3001">3000</option>
+            <option value="4501">4500</option>
+            <option value="6001" selected>6000</option>
+            <option value="9001">9000</option>
+            <option value="12001">12000</option>
+            <option value="19501">19500</option>
+        </select>
+        feet
+    </p>
+    <div id="opener">
+    <p>Zoom in and click where you want to go.</p>
+    </div>
+    <div id='maincontrol'>
+<p>Click marker on map to add start/TP/Finish.</p>
+<p>Up arrow on list to move TP up, "X" to delete.</p>
+<table>
+
+<tbody id="tasktab">
+</tbody>
+</table>
+<p id="tasklength"></p>
+    </div>
+    </div>
+    <div id='disclaimer'>
+       <p>
+    <b>Warning:</b> Unless the "no airspace" option is selected opposite, outlines of controlled airspace  will be displayed on the map provided we have data for the area.</p>
+    <p>This information is for guidance only.  It  may not be accurate,  current or complete and is not valid for navigation or flight planning.   Always consult the official publications for current and correct information. 
+    </p>
+    <button id='acceptor'>Accept</button>
+    </div>
+</body>
+</html>
