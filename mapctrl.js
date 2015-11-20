@@ -90,6 +90,12 @@ function bindTaskButtons() {
      updateTask();
  }
  
+ function zapMarkers() {
+     if(mapLayers.markers) {
+         map.removeLayer(mapLayers.markers);
+     }
+ }
+ 
     function showAirspace() {
        var mapbounds= map.getBounds();
       // alert(JSON.stringify(mapbounds));
@@ -176,13 +182,15 @@ showTps:  function(pointlist) {
            iconUrl: 'lib/leaflet/images/marker-icon.png',
              iconSize: [15, 25]
              });
+            zapMarkers();
             var liteicon=L.divIcon();
             for(i=0;i < pointlist.length;i++) {
             latlng=L.latLng(pointlist[i].latitude,pointlist[i].longitude)
-           marker=L.marker(latlng,{title: pointlist[i].tpname, icon: myIcon}).on('click', markerClick);
+           marker=L.marker(latlng,{title: pointlist[i].tpname, icon: myIcon}).on('click',markerClick);
             markerlist.push(marker);
             }
-            L.layerGroup(markerlist).addTo(map);
+            mapLayers.markers=L.layerGroup(markerlist).addTo(map);
+            
         },
         activateEvents: function() {
         map.on({'moveend':showAirspace,'click': function(e) {
